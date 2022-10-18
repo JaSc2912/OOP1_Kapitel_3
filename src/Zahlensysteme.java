@@ -11,6 +11,10 @@ public class Zahlensysteme {
         System.out.println(zahlensysteme.toOktal(1000));
         System.out.println(zahlensysteme.toOktal(43981));
         System.out.println(zahlensysteme.toOktal(34952));
+        System.out.println(zahlensysteme.toHex(270));
+        System.out.println(zahlensysteme.toHex(1000));
+        System.out.println(zahlensysteme.toHex(43981));
+        System.out.println(zahlensysteme.toHex(34952));
     }
 
 //only working for positive decimals without a point.
@@ -28,7 +32,6 @@ public class Zahlensysteme {
     }
     public String toOktal(int dez)
     {
-        String ret="";
 
 
         /*while((int)(dez/8)!=0){
@@ -40,6 +43,7 @@ public class Zahlensysteme {
             ret=rString;
         }*/
 
+        String ret="";
         while(dez>0){
             Integer tem = 0;
             tem = dez%8;
@@ -51,6 +55,23 @@ public class Zahlensysteme {
         return ret;
     }
     public String toHex(int dez){
-        return "";
+        String ret="";
+        while(dez>0){
+            Integer tem = 0;
+            tem = dez%16;
+            dez= dez/16;
+            String temp="";
+            switch (tem){
+                case 10: temp+="A"; break;
+                case 11: temp+="B"; break;
+                case 12: temp+="C"; break;
+                case 13: temp+="D"; break;
+                case 14: temp+="E"; break;
+                case 15: temp+="F"; break;
+                default: temp+=tem.toString(); break;
+            }
+            ret=temp+=ret;
+        }
+        return ret;
     }
 }
